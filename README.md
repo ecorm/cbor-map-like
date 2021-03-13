@@ -77,7 +77,7 @@ The above proposed tag 128 may be used instead to guide a JavaScript decoder int
 
 Specification: https://github.com/ecorm/cbor-tag-text-key-map
 
-The above proposed tag 132 may be used instead to guide a decoder into intepreting a CBOR map as a JavaScript-like Object having only text string keys. The decoder would have to verify the first key to establish that the map has heterogenous text string keys.
+The above proposed tag 132 may be used instead to guide a decoder into intepreting a CBOR map as a JavaScript-like Object having only text string keys. The decoder would have to verify the first key to establish that the map has homogeneous text string keys.
 
 ### Tag TBD279 ###
 
