@@ -21,8 +21,8 @@ This document proposes a consolidated set of CBOR tags for map-like entities inv
 | 135 | 0111 | No               | Yes            | Preserved | No          | array     |             |
 | 136 | 1000 | Yes              | Yes            | Unordered | Yes         | map       |             |
 | 137 | 1001 | Yes              | Yes            | Unordered | No          | array     |             |
-| 139 | 1010 | Yes              | Yes            | Preserved | Yes         | array     |             |
-| 140 | 1011 | Yes              | Yes            | Preserved | No          | array     |             |
+| 138 | 1010 | Yes              | Yes            | Preserved | Yes         | array     |             |
+| 139 | 1011 | Yes              | Yes            | Preserved | No          | array     |             |
 
 *TBD279: https://github.com/Sekenre/cbor-ordered-map-spec/blob/master/CBOR_Ordered_Map.md
 
