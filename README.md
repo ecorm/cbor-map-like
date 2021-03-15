@@ -32,9 +32,9 @@ This document proposes a consolidated set of CBOR tags for map-like entities inv
 
 Bits 2/3 of the tag provides information on the map's key and value types:
 
-- 0b00 Unspecified: There is no specified type for the map's keys and values
-- 0b01 Homogenous Key: All keys have the same data type
-- 0b10 Homogenous Key/Value: All values have the same data type in addition to all keys having the same data type (the types for keys and values may be distinct).
+- 0b00xx Unspecified: There is no specified type for the map's keys and values
+- 0b01xx Homogenous Key: All keys have the same data type
+- 0b10xx Homogenous Key/Value: All values have the same data type in addition to all keys having the same data type (the types for keys and values may be distinct).
 
 Maps with heterogenous keys and homogenous values are considered unusual, so they are left out of this specification in order to reduce the number of tags allocated (12 instead of 16).
 
