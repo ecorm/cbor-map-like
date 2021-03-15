@@ -9,20 +9,20 @@ This document proposes a consolidated set of CBOR tags for map-like entities inv
 
 ## Summary
 
-| Tag | LSBs | Homogenous Value | Homogenous Key | Ordering  | Unique Keys | Data Item | Related Tag |
-| --- | ---- | ---------------- | -------------- | --------- | ----------- | --------- | ----------- |
-| 128 | 0000 | No               | No             | Unordered | Yes         | map       | 259         |
-| 129 | 0001 | No               | No             | Unordered | No          | array     | TDB280*     |
-| 130 | 0010 | No               | No             | Preserved | Yes         | array     | TBD279*     |
-| 131 | 0011 | No               | No             | Preserved | No          | array     |             |
-| 132 | 0100 | No               | Yes            | Unordered | Yes         | map       | 275         |
-| 133 | 0101 | No               | Yes            | Unordered | No          | array     |             |
-| 134 | 0110 | No               | Yes            | Preserved | Yes         | array     |             |
-| 135 | 0111 | No               | Yes            | Preserved | No          | array     |             |
-| 136 | 1000 | Yes              | Yes            | Unordered | Yes         | map       |             |
-| 137 | 1001 | Yes              | Yes            | Unordered | No          | array     |             |
-| 138 | 1010 | Yes              | Yes            | Preserved | Yes         | array     |             |
-| 139 | 1011 | Yes              | Yes            | Preserved | No          | array     |             |
+| Tag | LSBs | Homogenous Value | Homogenous Key | Ordering  | Duplicate Keys Allowed | Data Item | Related Tag |
+| --- | ---- | ---------------- | -------------- | --------- | ---------------------- | --------- | ----------- |
+| 128 | 0000 | No               | No             | Unordered | No                     | map       | 259         |
+| 129 | 0001 | No               | No             | Unordered | Yes                    | array     | TDB280*     |
+| 130 | 0010 | No               | No             | Preserved | No                     | array     | TBD279*     |
+| 131 | 0011 | No               | No             | Preserved | Yes                    | array     |             |
+| 132 | 0100 | No               | Yes            | Unordered | No                     | map       | 275         |
+| 133 | 0101 | No               | Yes            | Unordered | Yes                    | array     |             |
+| 134 | 0110 | No               | Yes            | Preserved | No                     | array     |             |
+| 135 | 0111 | No               | Yes            | Preserved | Yes                    | array     |             |
+| 136 | 1000 | Yes              | Yes            | Unordered | No                     | map       |             |
+| 137 | 1001 | Yes              | Yes            | Unordered | Yes                    | array     |             |
+| 138 | 1010 | Yes              | Yes            | Preserved | No                     | array     |             |
+| 139 | 1011 | Yes              | Yes            | Preserved | Yes                    | array     |             |
 
 *TBD279: https://github.com/Sekenre/cbor-ordered-map-spec/blob/master/CBOR_Ordered_Map.md
 
