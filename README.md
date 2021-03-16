@@ -65,7 +65,7 @@ Otherwise, the map is encoded as an array (major type 4) of key-value pairs as i
 272(["key1", 1, "key2", 2])
 ```
 
-## Related Tags
+## Related Tags (Informative)
 
 ### Tag 259
 
@@ -90,3 +90,63 @@ The above proposed tag 130 may be used instead to encode maps where the insertio
 Draft specification: https://github.com/ecorm/cbor-tag-multimap
 
 The above proposed tag 129 may be used instead to encode a multimap as an array of key-value pairs.
+
+## Programming Language Containers (Informative)
+
+The following subsections describe how the tags in this document relate to various program language containers. Containers that are not part of the programming language or its standard libraries are not considered here.
+
+The *Encoding Tag* column in the following tables provide the recommended tag that best represents the given container type. For example, it's possible to
+use tag 132 for encoding an ECMAScript `Map` if all keys happen to be of the same type, however tag 128 is more general and applies to any `Map`. When encoding
+an ECMAScript `Object`, tag 128 would be technically correct but is too general; tag 132 best presents the fact that an `Object` has text keys only.
+
+The *Decodable Tags* colummn in the following tables, are for data items can be decoded into the destination container without having to inspect the following:
+
+- the uniqueness of the keys,
+- the ordering of the keys, and,
+- the data types of **every** keys/value pair.
+
+It may however be necessary to inspect the data types of the **first** key-value pair in the case of tags representing homogenous keys/values.
+
+### ECMAScript
+
+Container         | Encoding Tag | Decodable Tags |
+----------------- | ------------ | -------------- |
+`Object`          | 132          | 132, 136       |
+`Map`             | 128          | 128, 132, 136  |
+`Array` of pairs  | 131          | All            |
+
+### Python
+
+Container           | Encoding Tag | Decodable Tags |
+------------------- | ------------ | -------------- |
+`TypedDict`         | 136          | 136            |
+`namedtuple`        | 132          | 132, 136       |
+`dict`              | 128          | 128, 132, 136  |
+`OrderedDict`       | 130          | 130, 134, 138  |
+`list` of 2-tuples  | 131          | All            |
+
+### C++
+
+Container(s)           | Encoding Tag | Decodable Tags |
+---------------------- | ------------ | -------------- |
+`Map<K, T>`            | 136          | 136            |
+`Map<K, D>`            | 132          | 132, 136       |
+`Map<D, D>`            | 128          | 128, 132, 136  |
+`MultiMap<K, T>`       | 137          | 137            |
+`MultiMap<K, D>`       | 133          | 133            |
+`MultiMap<D, D>`       | 129          | 128, 129       |
+`Sequence<Pair<K, T>>` | 139          | \[136, 139\]   |
+`Sequence<Pair<K, D>>` | 135          | \[132, 139\]   |
+`Sequence<Pair<D, D>>` | 131          | All            |
+
+Legend:
+- `K`: Static key type
+- `T`: Static value type
+- `D`: Suitable dynamic type, such as `std::any` or `std::variant`
+- `Map`: `std::map` or `std::unordered_map`
+- `MultiMap`: `std::multimap` or `std::unordered_multimap`
+- `Sequence`: Sequence container that preserves order (e.g. `vector`)
+- `Pair`: Object containing a key and a value, such as `std::pair`, or `std::tuple`.
+
+Note that a C++ `std::map` stores its key-value pairs in a sorted fashion, and
+does **not** preserve insertion order in the same manner as Python's `OrderedDict`.
