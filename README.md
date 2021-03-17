@@ -93,7 +93,7 @@ The above proposed tag 129 may be used instead to encode a multimap as an array 
 
 ## Programming Language Containers (Informative)
 
-The following subsections describe how the tags in this document relate to various program language containers. Containers that are not part of the programming language or its standard libraries are not considered here.
+The following subsections describe how the tags in this document relate to various programming language containers. Containers that are not part of the programming language or its standard libraries are not considered here.
 
 The *Encoding Tag* column in the following tables provide the recommended tag that best represents the given container type. For example, it's possible to
 use tag 132 for encoding an ECMAScript `Map` if all keys happen to be of the same type, however tag 128 is more general and applies to any `Map`. When encoding
