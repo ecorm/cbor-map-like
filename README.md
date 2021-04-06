@@ -29,7 +29,7 @@ This document proposes a consolidated set of CBOR tags for providing traits on c
 | 141 | 01101 | Dictionary | Uniform   | Uniform    | Unordered | Yes (keys)         | array     | Multimap<K,T>       |             |
 | 142 | 01110 | Dictionary | Uniform   | Uniform    | Preserved | No  (keys)         | array     | IndexedMap<K,T>     |             |
 | 143 | 01111 | Dictionary | Uniform   | Uniform    | Preserved | Yes (keys)         | array     | List<Pair<K,T>>     |             |
-| 144 | 10000 | List       | None      | Arbitrary  | Unordered | No                 | array     | Set<Any>            |             |
+| 144 | 10000 | List       | None      | Arbitrary  | Unordered | No                 | array     | Set<Any>            | 258         |
 | 145 | 10001 | List       | None      | Arbitrary  | Unordered | Yes                | array     | Bag<Any>            |             |
 | 146 | 10010 | List       | None      | Arbitrary  | Preserved | No                 | array     | IndexedSet<Any>     |             |
 | 147 | 10011 | List       | None      | Arbitrary  | Preserved | Yes                | array     | List<Any>           |             |
@@ -136,6 +136,12 @@ The tag summary table itemizes the abstract data types that are associated with 
 Specification: https://tools.ietf.org/html/rfc8746, section 3.2
 
 Tag 151 from this specification may be used instead to indicate that a Collection has a homogenous element type.
+
+### Tag 258
+
+Specification: https://github.com/input-output-hk/cbor-sets-spec/blob/master/CBOR_SETS.md
+
+Tag 144 from this specification may be used instead to indicate that a Collection is a set on unique values.
 
 ### Tag 259
 
