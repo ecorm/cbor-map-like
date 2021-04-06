@@ -105,7 +105,7 @@ The container is encoded as major type 5 (CBOR map) if and only if
 Otherwise, the container is encoded as major type 4 (CBOR array). In this situation, if the container happens to be a Dictionary, its key-value pairs shall be encoded as illustrated in the following example, shown using CBOR diagnostic notation:
 
 ```
-272(["key1", 1, "key2", 2])
+129(["key1", 1, "key2", 2])
 ```
 
 The rationale for not always using major type 4 (CBOR array) is that a receiver that is agnostic of this document's tags will at least be aware that the elements are key-value pairs when it receives major type 5 (CBOR map).
